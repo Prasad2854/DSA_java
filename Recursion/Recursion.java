@@ -9,7 +9,7 @@ import java.util.Set;
 //import com.apple.laf.resources.aqua;
 
 public class Recursion {
-
+	//palindrome
     public void stringSame(String data){
         int ans = 0;
         char[] a = data.toCharArray(); 
