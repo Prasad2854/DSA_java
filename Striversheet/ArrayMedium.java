@@ -204,9 +204,26 @@ public class ArrayMedium {
                 }
                 start++;
             }
-            maxOnes = Math.max(maxOnes, end - start +1);
+            maxOnes = Math.max(maxOnes, end - start +1); // **
         }
         return maxOnes;
+    }
+
+    public static int longestConsecutive(int[] nums) {
+        int count = 0;
+        HashSet<Integer> set = new HashSet<>();
+        for(int num : nums){
+            set.add(num);
+        }
+        Set<Integer> sortedSet = new TreeSet<>(set);
+        Integer[] newArr = new Integer[sortedSet.size()];
+        sortedSet.toArray(newArr);
+        for(int i =0; i < newArr.length-1; i++){
+            if(newArr[i+1] -  newArr[i] == 1){
+                count++;
+            }    
+        }
+        return count;
     }
 
 
@@ -238,6 +255,8 @@ public class ArrayMedium {
         System.out.println(Arrays.toString(splitArray(divideArr)));
         int maxOnes[] = {1, 0, 1, 1, 0, 0, 1};
         System.out.println(longestOnes(maxOnes, 2));
+        int[] sequence = {100,4,200,1,3,2};
+        System.out.println(longestConsecutive(sequence));
     }
 
 }
